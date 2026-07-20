@@ -64,6 +64,12 @@ h1 {
 .contact p {
   margin: 0 0 2mm;
 }
+.contact a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 0.7px;
+  text-underline-offset: 1.5px;
+}
 .contact span,
 .education span,
 .awards span {
@@ -79,7 +85,7 @@ a {
 }
 
 .summary {
-  margin: 5.5mm 0 5mm;
+  margin: 4.5mm 0 4mm;
   max-width: 180mm;
   color: var(--muted);
 }
@@ -91,13 +97,13 @@ a {
 }
 
 section {
-  margin-top: 4mm;
+  margin-top: 3.3mm;
 }
 h2 {
   display: flex;
   align-items: center;
   gap: 5mm;
-  margin: 0 0 2.8mm;
+  margin: 0 0 2.3mm;
   color: var(--accent);
   font-size: 8.2pt;
   line-height: 1;
@@ -114,7 +120,7 @@ h2 span {
 }
 
 .entry {
-  margin-bottom: 3.2mm;
+  margin-bottom: 2.7mm;
 }
 h3 {
   margin: 0;
@@ -145,21 +151,51 @@ li::marker {
 }
 
 .project {
-  display: grid;
-  grid-template-columns: 20mm 13mm 1fr 48mm;
-  gap: 2mm;
+  margin: 0 0 2.5mm;
+}
+.project:not(:last-of-type) {
+  padding-bottom: 2.5mm;
+  border-bottom: 0.25mm solid var(--rule);
+}
+.project-heading {
+  display: flex;
+  gap: 4mm;
   align-items: baseline;
-  margin: 2mm 0;
 }
 .project p {
-  margin: 0;
+  margin: 1mm 0 0;
+  padding-left: 0;
   color: var(--muted);
 }
-.project code {
+.project-heading a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 0.7px;
+  text-underline-offset: 1.5px;
+}
+.badge {
+  color: var(--accent);
+  font-size: 7.2pt;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.project-stack {
+  display: grid;
+  grid-template-columns: 22mm 1fr;
+  margin: 1mm 0 0;
+  color: var(--muted);
+  font-size: 7.7pt;
+}
+.project-stack dt {
+  color: var(--ink);
+  font-weight: 700;
+}
+.project-stack dd {
+  margin: 0;
+}
+.project-stack span {
+  margin: 0 1.5mm;
   color: var(--faint);
-  font-family: "Courier New", monospace;
-  font-size: 7.25pt;
-  text-align: right;
 }
 
 .skills {
@@ -172,6 +208,28 @@ li::marker {
   font-weight: 700;
 }
 .skills dd {
+  margin: 0;
+  color: var(--muted);
+}
+.skills dd > span:not(:last-child)::after {
+  content: " · ";
+  color: var(--faint);
+}
+.skill-year b {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.spoken-languages {
+  display: grid;
+  grid-template-columns: 35mm 1fr;
+  row-gap: 1.8mm;
+  margin: 0;
+}
+.spoken-languages dt {
+  font-weight: 700;
+}
+.spoken-languages dd {
   margin: 0;
   color: var(--muted);
 }
@@ -208,6 +266,25 @@ li::marker {
 }
 .award-list span {
   margin-left: auto;
+  color: var(--faint);
+}
+
+.certifications {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.certifications li {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 1.5mm;
+  padding: 0;
+}
+.certifications a {
+  color: var(--ink);
+  font-weight: 600;
+}
+.certifications span {
   color: var(--faint);
 }
 

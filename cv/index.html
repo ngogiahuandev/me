@@ -15,7 +15,10 @@
           <p class="role">Frontend Engineer</p>
         </div>
         <div class="contact">
-          <p>Ho Chi Minh City, Vietnam <span>|</span> +84 911 685 725</p>
+          <p>
+            Ho Chi Minh City, Vietnam <span>|</span>
+            <a href="tel:+84911685725">+84 911 685 725</a>
+          </p>
           <p>
             <a href="mailto:huanngdev@gmail.com">huanngdev@gmail.com</a><span>|</span>
             <a href="https://huanngdev.site">huanngdev.site</a><span>|</span>
@@ -43,17 +46,33 @@
         <dl class="skills">
           <dt>Frontend</dt>
           <dd>
-            Next.js (App Router, RSC, server actions), React, Tailwind CSS, shadcn/ui, Framer
-            Motion, Zustand, Redux Toolkit
+            <span class="skill-year"><b>React</b> (4 years)</span>
+            <span class="skill-year"><b>Next.js</b> (3.5 years)</span>
+            <span>Tailwind CSS, shadcn/ui, Framer Motion, Zustand, Redux Toolkit</span>
           </dd>
-          <dt>Languages</dt>
-          <dd>TypeScript, JavaScript, HTML, CSS, Move</dd>
+          <dt>Programming</dt>
+          <dd>
+            <span class="skill-year"><b>JavaScript</b> (4 years)</span>
+            <span class="skill-year"><b>TypeScript</b> (3 years)</span>
+            <span>HTML, CSS, Move</span>
+          </dd>
           <dt>Backend &amp; Data</dt>
-          <dd>Node.js, Express, PostgreSQL, MongoDB, Redis, ClickHouse</dd>
+          <dd>
+            <span class="skill-year"><b>Node.js</b> (2 years)</span>
+            <span class="skill-year"><b>Express</b> (3 years)</span>
+            <span class="skill-year"><b>PostgreSQL &amp; Redis</b> (2 years)</span>
+            <span>MongoDB, ClickHouse</span>
+          </dd>
           <dt>Web3</dt>
           <dd>Sui, Move smart contracts, Walrus decentralized storage, Seal encryption</dd>
+          <dt>AI &amp; LLM</dt>
+          <dd>Vercel AI SDK, OpenRouter, OpenAI API, Claude</dd>
           <dt>Infrastructure &amp; Tools</dt>
-          <dd>Docker, AWS, Vercel, Railway, GitHub Actions, Git, Figma, Turborepo</dd>
+          <dd>
+            <span class="skill-year"><b>Git</b> (4 years)</span>
+            <span class="skill-year"><b>CI/CD</b> (1 year)</span>
+            <span>Docker, AWS, Vercel, Railway, GitHub Actions, Figma, Turborepo</span>
+          </dd>
         </dl>
       </section>
 
@@ -66,16 +85,19 @@
           </div>
           <ul>
             <li>
-              Designed and shipped product features for a Web2/Web3 analytics platform in a
-              three-person engineering team.
+              Designed and shipped product features for a Web2/Web3 analytics platform in a small
+              SaaS startup team.
             </li>
             <li>
               Built responsive Next.js interfaces and integrated them with Express services backed
               by PostgreSQL, Redis, and ClickHouse.
             </li>
             <li>
-              Tested releases, investigated user-reported issues, fixed defects, and kept technical
-              documentation current.
+              Tested releases, investigated user-reported issues, and fixed defects across the
+              product.
+            </li>
+            <li>
+              Maintained technical documentation so product behavior and integrations stayed clear.
             </li>
           </ul>
         </article>
@@ -89,9 +111,10 @@
               Led the frontend internship team on FAMS, a student management application delivered
               by a 10-person project team.
             </li>
+            <li>Created the shared UI foundation and reusable templates with Next.js and React.</li>
             <li>
-              Created the shared UI foundation in Next.js and React, managed client state with Redux
-              Toolkit, and coordinated API integration with the backend team.
+              Managed client state with Redux Toolkit and coordinated API integration with the
+              backend team.
             </li>
           </ul>
         </article>
@@ -99,26 +122,58 @@
 
       <section>
         <h2><span>Selected Projects</span></h2>
-        <div class="project">
-          <strong>WalForm</strong><a href="https://github.com/UyLeQuoc/sui-walform">Source</a>
+        <article class="project">
+          <div class="project-heading">
+            <strong>WalForm</strong><span class="badge">Top 1 · Live</span>
+            <a href="https://github.com/UyLeQuoc/sui-walform">Source</a>
+          </div>
           <p>
-            Drag-and-drop on-chain form builder with encrypted submissions and decentralized
-            storage.
+            Built a drag-and-drop form builder where form schemas live as Sui objects and encrypted
+            submissions are stored as Walrus blobs. Shipped on Sui mainnet for the Walrus Session 2
+            Form Tooling track.
           </p>
-          <code>Next.js / Sui / Walrus / Seal</code>
-        </div>
-        <div class="project">
-          <strong>Sui Stream</strong><a href="https://sui-stream-web.vercel.app/">Live</a>
+          <dl class="project-stack">
+            <dt>Tech stack</dt>
+            <dd>
+              Next.js <span>·</span> TypeScript <span>·</span> AI SDK <span>·</span> OpenRouter
+              <span>·</span> Sui <span>·</span> Move <span>·</span> Walrus <span>·</span> Seal
+            </dd>
+          </dl>
+        </article>
+        <article class="project">
+          <div class="project-heading">
+            <strong>Sui Stream</strong><span class="badge">Hackathon</span>
+            <a href="https://sui-stream-web.vercel.app/">Live demo</a>
+          </div>
           <p>
-            Responsive on-chain video experience powered by Walrus storage and Sui smart contracts.
+            Created a responsive on-chain video streaming experience using Walrus for decentralized
+            media storage and Sui smart contracts. Built for CommandOSS HackerHouse in April 2026.
           </p>
-          <code>Next.js / TypeScript / Sui</code>
-        </div>
-        <div class="project">
-          <strong>Portfolio</strong><a href="https://github.com/huanngdev/me">Source</a>
-          <p>Component-driven portfolio with interactive UI, typed content, and dark mode.</p>
-          <code>Next.js / Tailwind / shadcn</code>
-        </div>
+          <dl class="project-stack">
+            <dt>Tech stack</dt>
+            <dd>
+              Next.js <span>·</span> TypeScript <span>·</span> AI SDK <span>·</span> OpenRouter
+              <span>·</span> Sui <span>·</span> Move <span>·</span> Walrus
+            </dd>
+          </dl>
+        </article>
+        <article class="project">
+          <div class="project-heading">
+            <strong>Portfolio</strong><span class="badge">In progress</span>
+            <a href="https://github.com/huanngdev/me">Source</a>
+          </div>
+          <p>
+            Developed a typed, component-driven portfolio with interactive UI, responsive layouts,
+            dark mode, and shared packages managed in a Turborepo monorepo.
+          </p>
+          <dl class="project-stack">
+            <dt>Tech stack</dt>
+            <dd>
+              Next.js 16 <span>·</span> TypeScript <span>·</span> Tailwind CSS v4
+              <span>·</span> shadcn/ui <span>·</span> Turborepo
+            </dd>
+          </dl>
+        </article>
       </section>
 
       <section>
@@ -133,13 +188,46 @@
           <ul class="award-list">
             <li><b>Top 1</b> - Walrus Session 2, Form Tooling track <span>WalForm · 2026</span></li>
             <li><b>Top 2</b> - First Mover Hackathon <span>Relic of Lie · Feb 2026</span></li>
-            <li><b>Participant</b> - CommandOSS HackerHouse <span>Sui Stream · Apr 2026</span></li>
           </ul>
         </div>
       </section>
 
+      <section>
+        <h2><span>Certifications</span></h2>
+        <ul class="certifications">
+          <li>
+            <a href="https://coursera.org/share/2ad1c7065db757e6f538eff8bbb6de2e"
+              >User Experience Research and Design</a
+            >
+            <span>Coursera · May 2024</span>
+          </li>
+          <li>
+            <a href="https://coursera.org/share/36c1782cc9cc3475e9272d827ab08773"
+              >Project Management Principles and Practices</a
+            >
+            <span>Coursera · May 2024</span>
+          </li>
+          <li>
+            <a href="https://coursera.org/share/3c9c96daf64b42d71893639e0c7beca9"
+              >Certified Ethical Emerging Technologist</a
+            >
+            <span>CertNexus / Coursera · Sep 2023</span>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><span>Languages</span></h2>
+        <dl class="spoken-languages">
+          <dt>Vietnamese</dt>
+          <dd>Native proficiency</dd>
+          <dt>English</dt>
+          <dd>Intermediate working proficiency</dd>
+        </dl>
+      </section>
+
       <footer>
-        <span>Vietnamese (native) <b>|</b> English (intermediate)</span>
+        <span>Ngo Gia Huan · Frontend Engineer</span>
         <span>Updated July 2026</span>
       </footer>
     </main>
