@@ -36,9 +36,10 @@ Open to all engagement types — full-time roles, freelance, contract — and **
 
 > Open to full-time and freelance work — available now.
 
-## Birth year
+## Date of birth
 
-- **2003** — displayed as birth year (not age). Reads more like a personal touch than a recruiter-targeted disclosure.
+- **23 December 2003**
+- CV display: **23 Dec 2003** for compact, unambiguous international formatting.
 
 ## Spoken languages
 

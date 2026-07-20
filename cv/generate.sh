@@ -16,9 +16,9 @@ mkdir -p "$ROOT/output/pdf" "$ROOT/apps/web/public"
   --headless=new \
   --disable-gpu \
   --no-pdf-header-footer \
-  --print-to-pdf="$ROOT/output/pdf/ngo-gia-huan-cv.pdf" \
+  --print-to-pdf="$ROOT/output/pdf/huanngdev_cv.pdf" \
   "file://$CV_DIR/index.html" >/dev/null 2>&1
-cp "$ROOT/output/pdf/ngo-gia-huan-cv.pdf" "$ROOT/apps/web/public/huanngdev_cv.pdf"
+cp "$ROOT/output/pdf/huanngdev_cv.pdf" "$ROOT/apps/web/public/huanngdev_cv.pdf"
 
-printf 'Generated %s\n' "$ROOT/output/pdf/ngo-gia-huan-cv.pdf"
+printf 'Generated %s\n' "$ROOT/output/pdf/huanngdev_cv.pdf"
 printf 'Updated   %s\n' "$ROOT/apps/web/public/huanngdev_cv.pdf"
