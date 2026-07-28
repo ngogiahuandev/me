@@ -93,6 +93,14 @@ export function ExperienceSection() {
                   {job.about && (
                     <p className="text-muted-foreground mt-2 text-sm italic">{job.about}</p>
                   )}
+
+                  {"highlights" in job && job.highlights && (
+                    <ul className="text-muted-foreground mt-3 list-disc space-y-1.5 pl-4 text-sm leading-relaxed">
+                      {job.highlights.slice(0, 4).map((highlight) => (
+                        <li key={highlight}>{highlight}</li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </div>
             </StaggerListItem>

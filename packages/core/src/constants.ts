@@ -215,6 +215,7 @@ export interface ExperienceEntry {
   end: string | null;
   location: string;
   about?: string;
+  highlights?: ReadonlyArray<string>;
 }
 
 export const EXPERIENCE = [
@@ -226,6 +227,12 @@ export const EXPERIENCE = [
     end: "2026-05",
     location: "Ho Chi Minh City, Vietnam · On-site",
     about: "Web3 analytics / on-chain data product.",
+    highlights: [
+      "Owned Workspace API Keys end to end, from architecture, schema, scoped permissions, and APIs to the management UI.",
+      "Built the Formo CLI for authenticated access to analytics, profiles, dashboards, alerts, contracts, and segments.",
+      "Built the MCP server, an MVP client, and documentation so users could access project-scoped data through AI clients and external tools.",
+      "Designed reusable feature architecture and integrated Trigger.dev, Tinybird, Checkly, and Supabase for automation, ClickHouse APIs, monitoring, authentication, and storage.",
+    ],
   },
   {
     company: "FPT Software",
@@ -277,7 +284,7 @@ export const PROJECTS = [
     description: "On-chain form builder on Sui — forms with decentralized storage on Walrus.",
     details: {
       overview:
-        "WalForm is a decentralized form builder that lives end-to-end on Sui + Walrus + Seal. Every form schema is a Sui object, every submission is a Seal-encrypted Walrus blob, every site can be deployed to its own Walrus Sites with a SuiNS name. Creators get a polished drag-and-drop builder; respondents get one-click submit with sponsored gas; no platform — including us — can read submissions or take a form down.",
+        "WalForm is a decentralized form builder that lives end-to-end on Sui + Walrus + Seal. In a two-person team, I owned all frontend engineering and delivered customizable, SEO-ready forms and AI-assisted form generation in four weeks. The project won Top 1 in the Walrus Session 2 Form Tooling track and continued to be used in later Walrus sessions.",
       features: [
         "End-to-end Seal encryption — submissions encrypted in the browser before they touch Walrus. Private forms also encrypt the schema itself.",
         "One-click per-form Walrus Site deploy — no platform fee. Same outcome as paid services (e.g. Walgo); we take zero. Creator's wallet pays Walrus storage + Sui gas directly.",
@@ -323,14 +330,41 @@ export const PROJECTS = [
     links: { source: "https://github.com/UyLeQuoc/sui-walform" },
   },
   {
+    slug: "ielts-practices-online",
+    name: "IELTS Practices Online",
+    description: "IELTS practice platform with AI-assisted authoring and performance analytics.",
+    details: {
+      overview:
+        "IELTS Practices Online is a solo-built learning platform for teachers to publish practice tests and for students to practice IELTS skills. In three weeks, the system architecture and full-stack foundation were completed alongside working Reading, Listening, and Writing flows.",
+      features: [
+        "Teacher authoring workflows accept PDF and audio uploads through UploadThing.",
+        "AI-assisted authoring generates answer keys from uploaded materials, while AI review supports student Reading practice.",
+        "Student analytics include band scores, attempt counts, and results for each completed test.",
+        "Role-specific dashboards help teachers review learner performance and students track their progress.",
+      ],
+    },
+    stack: ["Next.js", "Hono", "Drizzle", "PostgreSQL", "Redis"],
+    status: "in-progress",
+    links: {},
+  },
+  {
     slug: "sui-stream",
     name: "Sui Stream",
-    description:
-      "YouTube, on-chain — video streaming powered by Walrus storage and Sui smart contracts.",
+    description: "On-chain short-video platform powered by Walrus storage and Sui contracts.",
+    details: {
+      overview:
+        "Sui Stream is a solo-built short-video platform with a responsive frontend, fast playback through Walrus's public aggregator, and Move smart contracts for on-chain interactions.",
+      features: [
+        "Uploads videos to Walrus and creates matching on-chain video objects on Sui.",
+        "Supports donations and mission campaigns that reward viewer participation.",
+        "Records views, comments, and likes through smart-contract-backed interactions.",
+        "Delivers a complete working demo built across the frontend and contract layers.",
+      ],
+    },
     stack: ["Sui", "Move", "Walrus", "TypeScript", "Next.js"],
     status: "demo",
     hackathon: "CommandOSS HackerHouse",
-    links: {},
+    links: { live: "https://sui-stream-web.vercel.app/" },
   },
   {
     slug: "personal-portfolio",

@@ -86,6 +86,11 @@ export function buildProfileMarkdown(): string {
       lines.push("");
       lines.push(e.about);
     }
+    if ("highlights" in e && e.highlights) {
+      for (const highlight of e.highlights.slice(0, 4)) {
+        lines.push(`- ${highlight}`);
+      }
+    }
     lines.push("");
   }
 

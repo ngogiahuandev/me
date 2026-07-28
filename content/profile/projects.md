@@ -14,42 +14,63 @@ Ordered for the public page: **hackathon work first, then everything else.** Hac
 ## 1. WalForm — _featured / hero project_
 
 - **One-liner:** On-chain form builder on Sui — forms with decentralized storage on Walrus.
+- **Role:** Frontend Developer in a two-person team
 - **Hackathon:** Walrus Session 2 (Form Tooling track)
-- **Stack:** Sui, Walrus, Move, TypeScript, Next.js _(confirm full stack)_
-- **Period:** _(start date)_
+- **Stack:** Sui, Walrus, Move, TypeScript, Next.js
+- **Period:** Four weeks
 - **Status:** **Live on Sui mainnet, deployed and reachable.**
 - **Links:**
   - Live: _(URL to add)_
-  - GitHub: _(URL to add)_
+  - GitHub: https://github.com/UyLeQuoc/sui-walform
   - Hackathon submission: _(URL to add)_
 
-### Why it leads
+### Highlights
 
-It's the project that proves the positioning fastest:
-
-- **Fullstack** — frontend + Move contracts + Walrus storage layer.
-- **Web3 native** — uses Sui's signature storage primitive (Walrus), not just a vanilla EVM clone.
-- **Live, not just a deck** — anyone can use it. That single fact outranks half the resumes in the funnel.
-
-This is also a strong **Components / craft** showcase: a form builder is interaction-heavy and visual, leaning into the "loves hard UI" angle from `about.md`.
+- Owned all frontend engineering for the drag-and-drop form builder.
+- Delivered customizable, SEO-ready forms and AI-assisted form generation in four weeks.
+- Integrated Sui objects, Seal encryption, and Walrus decentralized storage.
+- Won Top 1 in the Form Tooling track and continued to support later Walrus sessions.
 
 ---
 
-## 2. Sui Stream
+## 2. IELTS Practices Online
 
-- **One-liner:** YouTube, on-chain — video streaming powered by Walrus storage and Sui smart contracts.
+- **One-liner:** IELTS practice platform with AI-assisted authoring and performance analytics.
+- **Role:** Solo Fullstack Developer / System Design
+- **Stack:** Next.js, Hono, Drizzle, PostgreSQL on Neon, Redis, Better Auth, UploadThing, AI SDK
+- **Period:** Three weeks
+- **Status:** In development. Reading, Listening, and Writing flows are complete.
+- **Links:** The repository is private and no public deployment is available.
+
+### Highlights
+
+- Designed and implemented the complete system architecture and full-stack application.
+- Built teacher authoring flows with PDF and audio uploads through UploadThing.
+- Used AI to generate answer keys from uploaded materials and review student Reading practice.
+- Built analytics for band scores, attempt counts, and individual test results.
+
+---
+
+## 3. Sui Stream
+
+- **One-liner:** On-chain short-video platform powered by Walrus storage and Sui contracts.
+- **Role:** Solo Frontend and Smart Contract Developer
 - **Hackathon:** CommandOSS HackerHouse, 17 April 2026
-- **Stack:** Sui, Move, Walrus, TypeScript, Next.js _(confirm)_
-- **Status:** _(demo only? Live? Awaiting results)_
+- **Stack:** Sui, Move, Walrus, TypeScript, Next.js
+- **Status:** Complete working demo.
 - **Links:**
-  - Live / demo: _(URL to add)_
-  - GitHub: _(URL to add)_
+  - Live demo: https://sui-stream-web.vercel.app/
 
-Pitches well because it's a one-line analogy ("YouTube on-chain") that any non-technical recruiter understands instantly. Pair with a screenshot of the player UI.
+### Highlights
+
+- Built the responsive frontend and Move smart contracts.
+- Streamed short-form video through Walrus's public aggregator.
+- Created on-chain video objects and upload flows.
+- Implemented donations, viewer mission campaigns, views, comments, and likes.
 
 ---
 
-## 3. Relic of Lie — 🥈 Top 2
+## 4. Relic of Lie — 🥈 Top 2
 
 - **One-liner:** A decentralized take on the _Love Letter_ card game — bluffing and deduction, on-chain.
 - **Hackathon:** First Mover, 3 February 2026 — **Top 2**
@@ -63,7 +84,7 @@ The "first hackathon, first podium" line is the card subtitle — it's the fresh
 
 ---
 
-## 4. This portfolio site
+## 5. This portfolio site
 
 - **One-liner:** Personal portfolio built with Next.js 16, Tailwind v4, shadcn/ui, in a Turborepo monorepo with a shared `@repo/core` design-system package.
 - **Stack:** Next.js (App Router, RSC, server actions), Tailwind v4, shadcn/ui, Radix, Framer Motion, Velite/Contentlayer for MDX content, Vercel hosting.
@@ -74,7 +95,7 @@ Including the portfolio as a project is legitimate when it's craft-forward — r
 
 ---
 
-## 5. MapCN components
+## 6. MapCN components
 
 - **One-liner:** MapLibre-powered React map components integrated into the portfolio, centered on Ho Chi Minh City.
 - **Stack:** MapCN, MapLibre, React, TypeScript, Tailwind CSS.

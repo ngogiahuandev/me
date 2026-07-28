@@ -14,21 +14,21 @@ For 0-1 year out, the goal is **specificity over volume**: every bullet should n
 ## Formo
 
 - **Role:** Fullstack Developer
-- **Employment type:** _(confirm — Full-time? Contract?)_
+- **Employment type:** Full-time
 - **Period:** Sep 2025 – May 2026
 - **Duration:** 9 months
-- **Location:** _(confirm — Remote? Ho Chi Minh City office?)_
+- **Location:** Ho Chi Minh City, Vietnam — On-site
 
 ### About Formo
 
-Formo is a **Web3 analytics / on-chain data product**. (Confirm exact tagline — most likely positioned as on-chain customer analytics or product analytics for crypto-native teams.)
+Formo is a Web3 analytics and attribution platform for on-chain products.
 
-### Bullets to flesh out
+### Highlights
 
-- _What product/feature did you ship?_
-- _What was your stack?_
-- _What impact / metric can you name?_
-- _What did you learn or own end-to-end?_
+- Owned Workspace API Keys end to end, from architecture, schema, scoped permissions, and APIs to the management UI.
+- Built the Formo CLI for authenticated access to analytics, profiles, dashboards, alerts, contracts, and segments.
+- Built the MCP server, an MVP client, and documentation so users could access project-scoped data through AI clients and external tools.
+- Designed reusable feature architecture and integrated Trigger.dev, Tinybird, Checkly, and Supabase for automation, ClickHouse APIs, monitoring, authentication, and storage.
 
 ---
 
