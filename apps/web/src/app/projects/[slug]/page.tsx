@@ -1,7 +1,6 @@
-import { CodeXml, Film, Globe } from "lucide-react";
+import { CodeXml, Film, Globe, type LucideIcon } from "lucide-react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import type { ComponentType, SVGProps } from "react";
 
 import { PROJECTS, type ProjectEntry, type ProjectStatus } from "@repo/core/constants";
 import { cn } from "@repo/core/lib/utils";
@@ -165,7 +164,7 @@ function IconCircle({
   label,
 }: {
   href?: string;
-  icon: ComponentType<SVGProps<SVGSVGElement>>;
+  icon: LucideIcon;
   label: string;
 }) {
   const className =
