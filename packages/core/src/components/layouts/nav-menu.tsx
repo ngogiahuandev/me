@@ -29,7 +29,7 @@ export function NavMenu() {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost">
-              etc
+              Etc
               <ChevronDown className="ml-1 size-4" />
             </Button>
           </DropdownMenuTrigger>
@@ -67,7 +67,7 @@ export function NavMenu() {
               </Link>
             ))}
             <span className="text-muted-foreground border-t px-4 pt-3 pb-1 font-mono text-xs tracking-wide uppercase">
-              etc
+              Etc
             </span>
             {ETC_ITEMS.map((item) => (
               <Link

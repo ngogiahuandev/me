@@ -12,11 +12,8 @@ import { ProjectsSection } from "@repo/core/components/layouts/projects-section"
 import { SocialLinksSection } from "@repo/core/components/layouts/social-links-section";
 import { StripedSeparator } from "@repo/core/components/layouts/striped-separator";
 import { TocNav } from "@repo/core/components/layouts/toc-nav";
-import { ViewsSection } from "@repo/core/components/layouts/views/views-section";
 import { Reveal } from "@repo/core/components/reveal";
 import { Separator } from "@repo/core/components/separator";
-
-import { recordView } from "../lib/actions/record-view";
 
 export default function Home() {
   return (
@@ -37,10 +34,6 @@ export default function Home() {
       <StripedSeparator height="h-12" />
       <Reveal>
         <CodingSection />
-      </Reveal>
-      <StripedSeparator height="h-12" />
-      <Reveal>
-        <ViewsSection recordAction={recordView} />
       </Reveal>
       <StripedSeparator height="h-12" />
       <Reveal>

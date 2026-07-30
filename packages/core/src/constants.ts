@@ -17,11 +17,13 @@ export interface NavItem {
 export const NAV_ITEMS: NavItem[] = [
   { label: "Home", href: "/", icon: Home },
   { label: "Components", href: "/components", icon: Component },
-  { label: "Changelog", href: "/changelog", icon: History },
 ];
 
 // Secondary pages, grouped under an "etc" dropdown in the header.
-export const ETC_ITEMS: NavItem[] = [{ label: "World Cup", href: "/world-cup", icon: Trophy }];
+export const ETC_ITEMS: NavItem[] = [
+  { label: "Changelog", href: "/changelog", icon: History },
+  { label: "World Cup", href: "/world-cup", icon: Trophy },
+];
 
 // ---------- Identity ----------
 

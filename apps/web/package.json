@@ -8,25 +8,17 @@
     "start": "next start",
     "lint": "eslint",
     "check-types": "tsc --noEmit",
-    "format": "prettier --write \"src/**/*.{ts,tsx,md,mdx}\"",
-    "db:generate": "drizzle-kit generate",
-    "db:migrate": "tsx --env-file=.env src/db/migrate.ts",
-    "db:studio": "drizzle-kit studio"
+    "format": "prettier --write \"src/**/*.{ts,tsx,md,mdx}\""
   },
   "dependencies": {
     "@repo/core": "workspace:*",
-    "drizzle-orm": "^0.45.2",
     "framer-motion": "^12.43.0",
     "gsap": "^3.15.0",
-    "ioredis": "^5.11.1",
     "lucide-react": "^1.28.0",
     "next": "16.2.12",
     "next-themes": "^0.4.6",
-    "postgres": "^3.4.9",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "recharts": "^3.10.1",
-    "server-only": "^0.0.1",
     "zod": "^4.4.3"
   },
   "devDependencies": {
@@ -38,11 +30,9 @@
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
     "babel-plugin-react-compiler": "1.0.0",
-    "drizzle-kit": "^0.31.10",
     "eslint": "9.39.5",
     "prettier": "^3.9.6",
     "tailwindcss": "^4.3.3",
-    "tsx": "^4.23.1",
     "typescript": "6"
   },
   "ignoreScripts": [

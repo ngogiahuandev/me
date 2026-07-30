@@ -162,7 +162,7 @@ succeeds; on live failure it returns the backbone alone (degraded, never broken)
   **only while there is at least one live match**; otherwise it doesn't poll at all.
 - **Respect `prefers-reduced-motion`**: the live pulse animation degrades to a static dot.
 - **Token stays server-side** — never shipped to the browser; the client only ever calls our own
-  route handler. (Same posture as the views Server Action in `VIEWS_SETUP.md`.)
+  route handler.
 
 ---
 
