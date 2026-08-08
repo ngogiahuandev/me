@@ -12,9 +12,9 @@
     "./next": "./next.js"
   },
   "dependencies": {
-    "prettier-plugin-tailwindcss": "^0.6.11"
+    "prettier-plugin-tailwindcss": "^0.8.1"
   },
   "peerDependencies": {
-    "prettier": "^3"
+    "prettier": "^3.9.6"
   }
 }
