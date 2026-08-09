@@ -18,6 +18,8 @@ const COMPONENT_LIST: {
   },
 ];
 
+export const COMPONENT_COUNT = COMPONENT_LIST.length;
+
 export function ComponentsSection() {
   if (COMPONENT_LIST.length === 0) {
     return (

@@ -89,13 +89,6 @@ const SECTIONS: SectionItem[] = [
     keywords: ["github", "contributions", "activity"],
   },
   {
-    id: "projects",
-    title: "Projects",
-    hash: "#projects",
-    icon: FolderGit2,
-    keywords: ["work", "apps", "portfolio", "showcase"],
-  },
-  {
     id: "experience",
     title: "Experience",
     hash: "#experience",
@@ -108,6 +101,13 @@ const SECTIONS: SectionItem[] = [
     hash: "#education",
     icon: GraduationCap,
     keywords: ["school", "university", "fpt"],
+  },
+  {
+    id: "projects",
+    title: "Projects",
+    hash: "#projects",
+    icon: FolderGit2,
+    keywords: ["work", "apps", "portfolio", "showcase"],
   },
   {
     id: "certifications",

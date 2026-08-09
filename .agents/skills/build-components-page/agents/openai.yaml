@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build Components Page"
+  short_description: "Build consistent component documentation pages"
+  default_prompt: "Use $build-components-page to add or update a component documentation page in this portfolio."

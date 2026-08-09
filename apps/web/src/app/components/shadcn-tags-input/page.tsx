@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ExternalLink } from "lucide-react";
 
 import { CodeBlock } from "@repo/core/components/code-block";
+import { ComponentDemo } from "@repo/core/components/component-demo";
 import { PageHeader } from "@repo/core/components/layouts/page-header";
 import { Separator } from "@repo/core/components/separator";
 import {
@@ -18,7 +19,6 @@ import { TOCMinimap, type TOCItemType } from "@repo/core/components/toc-minimap"
 import registry from "../../../../public/r/shadcn-tags-input.json";
 import { BasicDemo, ConstrainedDemo, ZodDemo } from "./demo";
 
-const REGISTRY_URL = "https://huanngdev.site/r/shadcn-tags-input.json";
 const REPO_URL =
   "https://github.com/huanngdev/me/blob/main/packages/core/src/components/shadcn-tags-input/tags-input.tsx";
 
@@ -39,8 +39,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "/components/shadcn-tags-input" },
 };
 
-const CLI_COMMAND = `bunx --bun shadcn@latest add ${REGISTRY_URL}`;
-const NAMESPACE_COMMAND = `bunx --bun shadcn@latest add @huanng/shadcn-tags-input`;
 const DEPS_COMMAND = `bun add lucide-react`;
 const SHADCN_DEPS_COMMAND = `bunx --bun shadcn@latest add badge`;
 
@@ -59,6 +57,34 @@ export function Example() {
       onChange={setTags}
       placeholder="Type and press Enter..."
     />
+  );
+}`;
+
+const CONSTRAINED_USAGE_CODE = `"use client";
+
+import * as React from "react";
+import { TagsInput } from "@/components/shadcn-tags-input/tags-input";
+
+export function ConstrainedTagsInput() {
+  const [tags, setTags] = React.useState<string[]>([]);
+  const [error, setError] = React.useState<string | null>(null);
+
+  return (
+    <div className="space-y-2">
+      <TagsInput
+        value={tags}
+        onChange={(next) => {
+          setTags(next);
+          setError(null);
+        }}
+        maxTags={4}
+        minLength={2}
+        maxLength={16}
+        onValidationError={setError}
+        placeholder="Add up to 4 tags..."
+      />
+      {error && <p className="text-destructive text-xs">{error}</p>}
+    </div>
   );
 }`;
 
@@ -294,100 +320,60 @@ export default function TagsInputComponentPage() {
           <TOCMinimap items={TOC} />
         </div>
       </div>
-      <PageHeader title="Tags Input" />
+      <PageHeader
+        title="Tags Input"
+        description="A composable tags input with keyboard controls, validation, and form support."
+      />
       <article className="mx-auto flex w-full max-w-4xl flex-1 flex-col border-x">
-        <div className="px-4 py-8 sm:px-6 lg:px-8">
-          <p className="text-muted-foreground text-sm leading-relaxed">
-            A composable tags input built on shadcn primitives. Supports controlled and uncontrolled
-            modes, keyboard navigation, paste-splitting, custom validation, and form integration.
-          </p>
-        </div>
-        <Separator />
-
-        <Section id="demo" title="Demo" description="A controlled tags input.">
-          <div className="rounded-lg border p-6">
+        <Section id="demo" title="Demo">
+          <ComponentDemo code={BASIC_USAGE_CODE} previewClassName="max-w-sm">
             <BasicDemo />
-          </div>
+          </ComponentDemo>
         </Section>
         <Separator />
 
         <Section
           id="install"
           title="Install"
-          description="One command via the shadcn CLI, or copy the source manually."
+          description="Add the component manually in four steps."
         >
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-sm font-medium">CLI</h3>
-              <p className="text-muted-foreground mt-1 text-sm">
-                Adds the file and resolves the registry dependency automatically.
-              </p>
-              <div className="mt-3">
-                <TerminalBlock command={CLI_COMMAND} />
-              </div>
-              <details className="text-muted-foreground mt-3 text-xs">
-                <summary className="cursor-pointer select-none">
-                  Use the <code className="font-mono">@huanng/...</code> shorthand
-                </summary>
-                <p className="mt-2">
-                  Requires registering the namespace in your{" "}
-                  <code className="font-mono">components.json</code>:{" "}
-                  <code className="font-mono">
-                    {`"registries": { "@huanng": "${REGISTRY_URL.replace("shadcn-tags-input.json", "{name}.json")}" }`}
-                  </code>
-                </p>
-                <div className="mt-3">
-                  <TerminalBlock command={NAMESPACE_COMMAND} />
-                </div>
-              </details>
-            </div>
-
-            <Separator />
-
-            <div>
-              <h3 className="text-sm font-medium">Manual</h3>
-              <p className="text-muted-foreground mt-1 text-sm">
-                Four steps if you prefer to copy the file yourself.
-              </p>
-              <div className="mt-5 space-y-8">
-                <Step
-                  index={1}
-                  title="Install dependencies"
-                  description="Runtime libraries the component needs."
-                >
-                  <TerminalBlock command={DEPS_COMMAND} />
-                </Step>
-                <Step
-                  index={2}
-                  title="Add shadcn primitives"
-                  description="Pulls in the badge component used by tags."
-                >
-                  <TerminalBlock command={SHADCN_DEPS_COMMAND} />
-                </Step>
-                <Step
-                  index={3}
-                  title="Copy the source"
-                  description="Drop into components/shadcn-tags-input/tags-input.tsx."
-                >
-                  <CodeBlock code={TAGS_INPUT_SOURCE} language="tsx" />
-                </Step>
-                <Step
-                  index={4}
-                  title="Browse the repo"
-                  description="Latest source, history, and issues live on GitHub."
-                >
-                  <a
-                    href={REPO_URL}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="border-border hover:bg-muted inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 text-sm transition-colors"
-                  >
-                    <span className="font-mono text-xs">huanngdev/me</span>
-                    <ExternalLink className="size-3.5" />
-                  </a>
-                </Step>
-              </div>
-            </div>
+          <div className="space-y-8">
+            <Step
+              index={1}
+              title="Install dependencies"
+              description="Runtime libraries the component needs."
+            >
+              <TerminalBlock command={DEPS_COMMAND} />
+            </Step>
+            <Step
+              index={2}
+              title="Add shadcn primitives"
+              description="Pulls in the badge component used by tags."
+            >
+              <TerminalBlock command={SHADCN_DEPS_COMMAND} />
+            </Step>
+            <Step
+              index={3}
+              title="Copy the source"
+              description="Drop into components/shadcn-tags-input/tags-input.tsx."
+            >
+              <CodeBlock code={TAGS_INPUT_SOURCE} language="tsx" />
+            </Step>
+            <Step
+              index={4}
+              title="Browse the repo"
+              description="Latest source, history, and issues live on GitHub."
+            >
+              <a
+                href={REPO_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="border-border hover:bg-muted inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 text-sm transition-colors"
+              >
+                <span className="font-mono text-xs">huanngdev/me</span>
+                <ExternalLink className="size-3.5" />
+              </a>
+            </Step>
           </div>
         </Section>
         <Separator />
@@ -415,9 +401,9 @@ export default function TagsInputComponentPage() {
           title="With constraints"
           description="Limit tag count, length, and surface validation errors inline."
         >
-          <div className="rounded-lg border p-6">
+          <ComponentDemo code={CONSTRAINED_USAGE_CODE} previewClassName="max-w-sm">
             <ConstrainedDemo />
-          </div>
+          </ComponentDemo>
         </Section>
         <Separator />
 
@@ -426,11 +412,10 @@ export default function TagsInputComponentPage() {
           title="Zod validation"
           description="Validate the final array with a Zod schema on submit."
         >
-          <div className="space-y-6">
-            <div className="rounded-lg border p-6">
+          <div className="space-y-4">
+            <ComponentDemo code={ZOD_USAGE_CODE} previewClassName="max-w-sm">
               <ZodDemo />
-            </div>
-            <CodeBlock code={ZOD_USAGE_CODE} />
+            </ComponentDemo>
             <p className="text-muted-foreground text-sm leading-relaxed">
               The component itself enforces per-tag constraints at entry time (length, duplicates,
               max count). Use Zod to validate the <em>final</em> array shape on submit — e.g.
@@ -473,7 +458,7 @@ export default function TagsInputComponentPage() {
         <Separator />
 
         <Section id="types" title="Types">
-          <CodeBlock code={TYPES_CODE} />
+          <CodeBlock code={TYPES_CODE} language="ts" />
         </Section>
       </article>
     </>
