@@ -37,15 +37,15 @@ export default function Home() {
       </Reveal>
       <StripedSeparator height="h-12" />
       <Reveal>
-        <ProjectsSection />
-      </Reveal>
-      <StripedSeparator height="h-12" />
-      <Reveal>
         <ExperienceSection />
       </Reveal>
       <StripedSeparator height="h-12" />
       <Reveal>
         <EducationSection />
+      </Reveal>
+      <StripedSeparator height="h-12" />
+      <Reveal>
+        <ProjectsSection />
       </Reveal>
       <StripedSeparator height="h-12" />
       <Reveal>
