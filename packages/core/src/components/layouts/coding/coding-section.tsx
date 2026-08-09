@@ -20,18 +20,18 @@ export function CodingSection() {
       <div className="mx-auto w-full max-w-4xl border-x">
         <h2 className="sr-only">Coding</h2>
 
-        <div className="px-4 py-6 sm:px-2 sm:py-4">
+        <div className="p-6">
           <Suspense fallback={<GitHubContributionsFallback />}>
             <GitHubContributions
               contributions={contributions}
               githubProfileUrl={GITHUB_PROFILE_URL}
               className={cn(
-                // GitHub Default Theme
-                '**:data-[level="0"]:fill-[#eff2f5] dark:**:data-[level="0"]:fill-[#151b23]',
-                '**:data-[level="1"]:fill-[#aceebb] dark:**:data-[level="1"]:fill-[#033a16]',
-                '**:data-[level="2"]:fill-[#4ac26b] dark:**:data-[level="2"]:fill-[#196c2e]',
-                '**:data-[level="3"]:fill-[#2da44e] dark:**:data-[level="3"]:fill-[#2ea043]',
-                '**:data-[level="4"]:fill-[#116329] dark:**:data-[level="4"]:fill-[#56d364]',
+                // Nullframe contribution theme
+                '**:data-[level="0"]:bg-[#ebedf0] dark:**:data-[level="0"]:bg-[#1c1c1c]',
+                '**:data-[level="1"]:bg-[#d2f4dc] dark:**:data-[level="1"]:bg-[#1e3526]',
+                '**:data-[level="2"]:bg-[#9be9a8] dark:**:data-[level="2"]:bg-[#2c5639]',
+                '**:data-[level="3"]:bg-[#40c463] dark:**:data-[level="3"]:bg-[#3f8a50]',
+                '**:data-[level="4"]:bg-[#30a14e] dark:**:data-[level="4"]:bg-[#62c878]',
               )}
             />
           </Suspense>
