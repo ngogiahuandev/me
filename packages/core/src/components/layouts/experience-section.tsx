@@ -2,6 +2,7 @@ import { BriefcaseIcon } from "lucide-react";
 
 import { EXPERIENCE } from "../../constants";
 import { StaggerList, StaggerListItem } from "../reveal";
+import { TechBadgeList } from "./coding/tech-stack";
 
 const COMPANY_LOGOS: Record<string, string> = {
   Formo: "/images/formo-logo.svg",
@@ -100,6 +101,15 @@ export function ExperienceSection() {
                         <li key={highlight}>{highlight}</li>
                       ))}
                     </ul>
+                  )}
+
+                  {"techStack" in job && job.techStack.length > 0 && (
+                    <div className="mt-3 space-y-1.5">
+                      <p className="text-muted-foreground font-mono text-[11px] tracking-wide uppercase">
+                        Tech stack
+                      </p>
+                      <TechBadgeList items={job.techStack} />
+                    </div>
                   )}
                 </div>
               </div>

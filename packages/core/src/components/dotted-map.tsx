@@ -24,6 +24,8 @@ export interface DottedMapProps<M extends Marker = Marker> extends React.SVGProp
   dotColor?: string;
   markerColor?: string;
   dotRadius?: number;
+  /** Visual extrusion behind the dot plane, in SVG/CSS pixels. */
+  dotDepth?: number;
   stagger?: boolean;
   pulse?: boolean;
 
@@ -44,6 +46,7 @@ export function DottedMap<M extends Marker = Marker>({
   dotColor = "currentColor",
   markerColor = "#FF6900",
   dotRadius = 0.2,
+  dotDepth = 0,
   stagger = true,
   pulse = false,
   renderMarkerOverlay,
@@ -86,19 +89,29 @@ export function DottedMap<M extends Marker = Marker>({
       style={{ width: "100%", height: "100%", ...style }}
       {...svgProps}
     >
-      {points.map((point, index) => {
-        const rowIndex = yToRowIndex.get(point.y) ?? 0;
-        const offsetX = stagger && rowIndex % 2 === 1 ? xStep / 2 : 0;
-        return (
-          <circle
-            cx={point.x + offsetX}
-            cy={point.y}
-            r={dotRadius}
-            fill={dotColor}
-            key={`${point.x}-${point.y}-${index}`}
-          />
-        );
-      })}
+      <g
+        style={
+          dotDepth > 0
+            ? {
+                filter: `drop-shadow(${dotDepth * 0.28}px ${dotDepth * 0.45}px 0 currentColor) drop-shadow(${dotDepth * 0.55}px ${dotDepth}px 0 currentColor)`,
+              }
+            : undefined
+        }
+      >
+        {points.map((point, index) => {
+          const rowIndex = yToRowIndex.get(point.y) ?? 0;
+          const offsetX = stagger && rowIndex % 2 === 1 ? xStep / 2 : 0;
+          return (
+            <circle
+              cx={point.x + offsetX}
+              cy={point.y}
+              r={dotRadius}
+              fill={dotColor}
+              key={`${point.x}-${point.y}-${index}`}
+            />
+          );
+        })}
+      </g>
 
       {processedMarkers.map((marker, index) => {
         const rowIndex = yToRowIndex.get(marker.y) ?? 0;

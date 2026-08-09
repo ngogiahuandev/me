@@ -38,7 +38,7 @@ For a 0-1 yr fullstack engineer, the highest-leverage tagline pattern is **what 
 
 Recommended:
 
-> **Fullstack engineer in Ho Chi Minh City. I build Next.js products in TypeScript — and occasionally wander into Sui blockchain.**
+> **Fullstack developer in Ho Chi Minh City. I build web apps with Next.js and TypeScript, and sometimes work with Sui.**
 
 Variants to A/B mentally:
 

@@ -10,8 +10,8 @@ The hero/header data. Single source of truth for name, location, roles, language
 ## Name
 
 - **Full name:** Ngô Gia Huấn
-- **Romanized (display name):** Ngo Gia Huan
-- **Hero display:** **Ngo Gia Huan**. Romanized form for international readability; no anglicized nickname.
+- **Romanized name:** Ngo Gia Huan
+- **Hero display:** **Ngô Gia Huấn**. Use the Vietnamese spelling publicly; keep the Romanized form only as an alternate name for search and metadata.
 
 ## Location
 
@@ -32,9 +32,9 @@ Lead with **Fullstack Engineer** in the hero tagline; the others surface in the 
 
 ## Availability
 
-Open to all engagement types — full-time roles, freelance, contract — and **available immediately**. CTA copy should signal urgency without being desperate. Suggested hero microcopy:
+Currently freelancing and open to full-time roles or additional freelance work. Suggested hero microcopy:
 
-> Open to full-time and freelance work — available now.
+> Currently freelancing and open to full-time opportunities.
 
 ## Date of birth
 

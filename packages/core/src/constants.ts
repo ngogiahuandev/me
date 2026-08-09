@@ -25,6 +25,135 @@ export const ETC_ITEMS: NavItem[] = [
   { label: "World Cup", href: "/world-cup", icon: Trophy },
 ];
 
+// ---------- Local greetings ----------
+
+export type GreetingPeriodId =
+  | "midnight"
+  | "early-morning"
+  | "morning"
+  | "noon"
+  | "afternoon"
+  | "evening"
+  | "early-night"
+  | "late-night";
+
+export interface GreetingPeriod {
+  id: GreetingPeriodId;
+  label: string;
+  /** Local hour, inclusive. */
+  startHour: number;
+  /** Local hour, exclusive. */
+  endHour: number;
+  messages: readonly [string, string, string, string, string, ...string[]];
+}
+
+export const GREETING_PERIODS = [
+  {
+    id: "midnight",
+    label: "Midnight",
+    startHour: 0,
+    endHour: 3,
+    messages: [
+      "Still awake? Hello.",
+      "A quiet midnight hello.",
+      "Hello from the late hours.",
+      "Midnight suits you.",
+      "Thanks for stopping by late.",
+    ],
+  },
+  {
+    id: "early-morning",
+    label: "Early morning",
+    startHour: 3,
+    endHour: 6,
+    messages: [
+      "You're up early. Hello.",
+      "A fresh start begins here.",
+      "Good early morning.",
+      "The day is waking up.",
+      "Hello, early explorer.",
+    ],
+  },
+  {
+    id: "morning",
+    label: "Morning",
+    startHour: 6,
+    endHour: 11,
+    messages: [
+      "Good morning!",
+      "Hope your morning is kind.",
+      "Morning, glad you're here.",
+      "A good day starts here.",
+      "Hello, morning visitor.",
+    ],
+  },
+  {
+    id: "noon",
+    label: "Noon",
+    startHour: 11,
+    endHour: 13,
+    messages: [
+      "Good noon!",
+      "Hello from the middle of the day.",
+      "Hope lunch is treating you well.",
+      "A quick midday hello.",
+      "Thanks for spending your noon here.",
+    ],
+  },
+  {
+    id: "afternoon",
+    label: "Afternoon",
+    startHour: 13,
+    endHour: 17,
+    messages: [
+      "Good afternoon!",
+      "Hope the day is going well.",
+      "Afternoon, nice to meet you.",
+      "Thanks for dropping in.",
+      "A warm afternoon hello.",
+    ],
+  },
+  {
+    id: "evening",
+    label: "Evening",
+    startHour: 17,
+    endHour: 20,
+    messages: [
+      "Good evening!",
+      "Hope you had a good day.",
+      "Evening, welcome in.",
+      "Time to slow things down.",
+      "A calm evening hello.",
+    ],
+  },
+  {
+    id: "early-night",
+    label: "Early night",
+    startHour: 20,
+    endHour: 22,
+    messages: [
+      "Good night, not too late yet.",
+      "Hope your night is going well.",
+      "A little night-time hello.",
+      "Welcome to the quiet hours.",
+      "Nice to see you tonight.",
+    ],
+  },
+  {
+    id: "late-night",
+    label: "Late night",
+    startHour: 22,
+    endHour: 24,
+    messages: [
+      "Late-night browsing? Welcome.",
+      "One last hello for the day.",
+      "Hello, night owl.",
+      "Thanks for visiting tonight.",
+      "Take it easy tonight.",
+    ],
+  },
+] as const satisfies ReadonlyArray<GreetingPeriod>;
+
 // ---------- Identity ----------
 
 export interface Identity {
@@ -46,7 +175,7 @@ export interface Identity {
 
 export const IDENTITY = {
   fullName: "Ngô Gia Huấn",
-  displayName: "Ngo Gia Huan",
+  displayName: "Ngô Gia Huấn",
   birthYear: 2003,
   birthDate: "2003-12-23",
   location: {
@@ -60,10 +189,10 @@ export const IDENTITY = {
   ],
   roles: ["Fullstack Engineer", "Frontend Engineer", "Backend Engineer", "Blockchain Engineer"],
   tagline:
-    "Fullstack engineer in Ho Chi Minh City. I build Next.js products in TypeScript — and occasionally wander into Sui blockchain.",
+    "Fullstack developer in Ho Chi Minh City. I build web apps with Next.js and TypeScript, and sometimes work with Sui.",
   description:
-    "Self-taught fullstack developer shipping Next.js products in TypeScript, with a soft spot for hard UI work and the occasional hackathon.",
-  availability: "Open to full-time and freelance work — available now.",
+    "Hi there. I'm a self-taught fullstack developer building web apps with Next.js and TypeScript. I enjoy working on UI details and joining hackathons from time to time.",
+  availability: "Currently freelancing and open to full-time opportunities.",
 } as const satisfies Identity;
 
 // ---------- Contact & social ----------
@@ -218,9 +347,19 @@ export interface ExperienceEntry {
   location: string;
   about?: string;
   highlights?: ReadonlyArray<string>;
+  techStack?: ReadonlyArray<string>;
 }
 
 export const EXPERIENCE = [
+  {
+    company: "Freelance",
+    role: "Fullstack Developer",
+    employmentType: "freelance",
+    start: "2026-06",
+    end: null,
+    location: "Ho Chi Minh City, Vietnam · Remote",
+    about: "Independent fullstack development.",
+  },
   {
     company: "Formo",
     role: "Fullstack Developer",
@@ -235,6 +374,26 @@ export const EXPERIENCE = [
       "Built the MCP server, an MVP client, and documentation so users could access project-scoped data through AI clients and external tools.",
       "Designed reusable feature architecture and integrated Trigger.dev, Tinybird, Checkly, and Supabase for automation, ClickHouse APIs, monitoring, authentication, and storage.",
     ],
+    techStack: [
+      "TypeScript",
+      "JavaScript",
+      "Next.js",
+      "Express",
+      "Redis",
+      "Supabase",
+      "ClickHouse",
+      "AWS",
+      "Prisma",
+      "Zustand",
+      "shadcn/ui",
+      "Railway",
+      "GitHub Actions",
+      "pnpm",
+      "Git",
+      "Trigger.dev",
+      "Tinybird",
+      "Checkly",
+    ],
   },
   {
     company: "FPT Software",
@@ -244,6 +403,7 @@ export const EXPERIENCE = [
     end: "2025-05",
     location: "Ho Chi Minh City, Vietnam",
     about: "Web team — Next.js / React stack.",
+    techStack: ["Next.js", "React", "Redux Toolkit", "Git", "GitHub Actions"],
   },
 ] as const satisfies ReadonlyArray<ExperienceEntry>;
 
@@ -549,6 +709,17 @@ export interface ChangelogEntry {
 
 // Curated from git history — big milestones only. Newest first.
 export const CHANGELOG = [
+  {
+    date: "2026-08-09",
+    changes: [
+      "Refreshed the profile with the Vietnamese display name, current freelance role, richer experience stacks, and theme-aware generated avatars.",
+      "Added local-time handwritten greetings and a dimensional dotted map to the cover.",
+      "Rebuilt the GitHub contribution heatmap with responsive cells and theme-safe activity animation.",
+      "Redesigned the section minimap with proximity animation, live scroll tracking, detail popovers, and subtle sound feedback.",
+      "Hardened animated theme changes against repeated input and added consistent SoundCN feedback to copy and toggle actions.",
+      "Moved secondary pages into an icon-led navigation menu and added source inspiration to the footer.",
+    ],
+  },
   {
     date: "2026-06-24",
     changes: [

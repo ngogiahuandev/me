@@ -11,6 +11,17 @@ For 0-1 year out, the goal is **specificity over volume**: every bullet should n
 
 ---
 
+## Freelance
+
+- **Role:** Fullstack Developer
+- **Employment type:** Freelance
+- **Period:** Jun 2026 – Present
+- **Location:** Ho Chi Minh City, Vietnam — Remote
+
+No public client details, highlights, or tech stack are listed until they are confirmed.
+
+---
+
 ## Formo
 
 - **Role:** Fullstack Developer
@@ -18,6 +29,7 @@ For 0-1 year out, the goal is **specificity over volume**: every bullet should n
 - **Period:** Sep 2025 – May 2026
 - **Duration:** 9 months
 - **Location:** Ho Chi Minh City, Vietnam — On-site
+- **Tech stack:** TypeScript, JavaScript, Next.js, Express, Redis, Supabase, ClickHouse, AWS, Prisma, Zustand, shadcn/ui, Railway, GitHub Actions, pnpm, Git, Trigger.dev, Tinybird, Checkly
 
 ### About Formo
 
@@ -39,6 +51,7 @@ Formo is a Web3 analytics and attribution platform for on-chain products.
 - **Period:** September 2024 – May 2025
 - **Duration:** 9 months
 - **Location:** _(confirm)_
+- **Tech stack:** Next.js, React, Redux Toolkit, Git, GitHub Actions
 
 ### About the team / project
 
@@ -55,9 +68,9 @@ Web team — Next.js / React stack. _(Confirm which BU/practice and whether it w
 
 ## Current status
 
-May 2026 — actively looking for the next role. Open to full-time and freelance, remote-friendly, based in Ho Chi Minh City.
+Freelancing since June 2026. Open to full-time opportunities and additional freelance work, remote-friendly, based in Ho Chi Minh City.
 
-The Experience section should NOT include "looking for work" as an entry — that goes in the Hero CTA and the Availability microcopy instead. Keeping Experience clean = only past roles.
+The Experience section should show Freelance as the current role. Availability details belong in the Hero CTA rather than as a separate experience entry.
 
 ---
 

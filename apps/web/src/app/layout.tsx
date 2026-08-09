@@ -5,7 +5,7 @@ import { ScrollProgress } from "@repo/core/components/layouts/scroll-progress";
 import { ThemeProvider } from "@repo/core/components/providers/theme-provider";
 import { cn } from "@repo/core/lib/utils";
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Caveat, Inter, JetBrains_Mono } from "next/font/google";
 import { TooltipProvider } from "@repo/core/components/tooltip";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
@@ -15,10 +15,15 @@ const fontMono = JetBrains_Mono({
   variable: "--font-mono",
 });
 
+const fontHandwriting = Caveat({
+  subsets: ["latin"],
+  variable: "--font-handwriting",
+});
+
 const SITE_URL = "https://huanngdev.site";
-const SITE_NAME = "Ngo Gia Huan";
+const SITE_NAME = "Ngô Gia Huấn";
 const SITE_DESCRIPTION =
-  "Fullstack engineer in Ho Chi Minh City. Building Next.js products in TypeScript, with occasional detours into Sui blockchain.";
+  "Hi there. I'm a self-taught fullstack developer building web apps with Next.js and TypeScript. I enjoy working on UI details and joining hackathons from time to time.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -32,6 +37,7 @@ export const metadata: Metadata = {
   creator: SITE_NAME,
   publisher: SITE_NAME,
   keywords: [
+    "Ngô Gia Huấn",
     "Ngo Gia Huan",
     "huanngdev",
     "Fullstack engineer",
@@ -87,11 +93,11 @@ export const metadata: Metadata = {
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "Ngo Gia Huan",
-  alternateName: "Ngô Gia Huấn",
+  name: "Ngô Gia Huấn",
+  alternateName: "Ngo Gia Huan",
   url: SITE_URL,
   image: `${SITE_URL}/opengraph-image.png`,
-  jobTitle: "Fullstack Engineer",
+  jobTitle: "Freelance Fullstack Developer",
   email: "mailto:huanngdev@gmail.com",
   address: {
     "@type": "PostalAddress",
@@ -116,7 +122,13 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("h-full antialiased", inter.variable, fontMono.variable, "font-sans")}
+      className={cn(
+        "h-full antialiased",
+        inter.variable,
+        fontMono.variable,
+        fontHandwriting.variable,
+        "font-sans",
+      )}
     >
       <body className="flex min-h-full flex-col">
         <script

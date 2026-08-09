@@ -5,7 +5,7 @@ updated: 2026-05-19
 
 # Awards & hackathons
 
-Three hackathons participated in (reverse-chronological). For 0-1 yr engineers, a single podium is among the strongest signals on the page — Ngo Gia Huan has one Top 1 and one Top 2 on consecutive months. That's a velocity story worth surfacing.
+Three hackathons participated in (reverse-chronological). For 0-1 yr engineers, a single podium is among the strongest signals on the page — Ngô Gia Huấn has one Top 1 and one Top 2 on consecutive months. That's a velocity story worth surfacing.
 
 ## 1. Walrus Session 2 — Form Tooling track
 
