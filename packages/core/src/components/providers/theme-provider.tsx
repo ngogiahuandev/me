@@ -5,13 +5,7 @@ import * as React from "react";
 
 function ThemeProvider({ children, ...props }: React.ComponentProps<typeof NextThemesProvider>) {
   return (
-    <NextThemesProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-      {...props}
-    >
+    <NextThemesProvider attribute="class" defaultTheme="system" enableSystem {...props}>
       <ThemeHotkey />
       {children}
     </NextThemesProvider>
@@ -49,6 +43,10 @@ function ThemeHotkey() {
       }
 
       if (isTypingTarget(event.target)) {
+        return;
+      }
+
+      if (document.documentElement.dataset.magicuiThemeVt === "active") {
         return;
       }
 

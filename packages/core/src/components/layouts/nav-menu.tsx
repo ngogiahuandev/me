@@ -1,18 +1,25 @@
 "use client";
 
-import { ChevronDown, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
 import { ETC_ITEMS, NAV_ITEMS } from "../../constants";
 import { Button } from "../button";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "../dropdown-menu";
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "../navigation-menu";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "../sheet";
+
+const ETC_DESCRIPTIONS: Record<string, string> = {
+  "/changelog": "A concise history of the portfolio's latest features and improvements.",
+  "/world-cup": "Live scores, group tables, and the full FIFA World Cup 2026 schedule.",
+};
 
 export function NavMenu() {
   const [open, setOpen] = useState(false);
@@ -26,24 +33,34 @@ export function NavMenu() {
           </Button>
         ))}
 
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost">
-              Etc
-              <ChevronDown className="ml-1 size-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="start" className="min-w-40">
-            {ETC_ITEMS.map((item) => (
-              <DropdownMenuItem key={item.href} asChild>
-                <Link href={item.href}>
-                  <item.icon className="text-muted-foreground size-4" />
-                  {item.label}
-                </Link>
-              </DropdownMenuItem>
-            ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <NavigationMenu viewport={false} className="h-full flex-none">
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Etc</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2">
+                  {ETC_ITEMS.map((item) => (
+                    <li key={item.href}>
+                      <NavigationMenuLink asChild className="h-full">
+                        <Link href={item.href}>
+                          <div className="flex items-start gap-2.5 text-sm">
+                            <item.icon className="text-muted-foreground mt-0.5 size-4 shrink-0" />
+                            <div className="flex min-w-0 flex-col gap-1">
+                              <div className="leading-none font-medium">{item.label}</div>
+                              <div className="text-muted-foreground line-clamp-2">
+                                {ETC_DESCRIPTIONS[item.href]}
+                              </div>
+                            </div>
+                          </div>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
       </nav>
 
       <Sheet open={open} onOpenChange={setOpen}>

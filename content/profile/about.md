@@ -9,7 +9,7 @@ The narrative anchor for the site. Source of truth for the About section, the SE
 
 ## Anchor
 
-**The one thing visitors should walk away knowing:** _Ngo Gia Huan ships — fast, and to a finish._
+**The one thing visitors should walk away knowing:** _Ngô Gia Huấn ships — fast, and to a finish._
 
 Hackathons, side projects, deployed work — the proof is in things that exist, not credentials. The portfolio should feel like a shelf of finished work, not a list of intents.
 
@@ -36,10 +36,10 @@ Both are warm, low-cringe personality signals that translate well to internation
 
 ## Draft bio
 
-> Self-taught fullstack developer from Ho Chi Minh City. I build web products in TypeScript — Next.js on the frontend, Node.js on the backend — with a soft spot for hard UI work: animations, interactions, the details most people skip. I won my first Sui hackathons in the last year, which was the kind of validation that turns a hobby into a direction. Outside code: games, music, anime.
+> I'm a self-taught fullstack developer based in Ho Chi Minh City. I build web apps with TypeScript, usually with Next.js and Node.js. I like working on UI details, animations, and interactions. I also build on Sui and join hackathons from time to time. Outside of coding, I'm usually playing games, listening to music, or watching anime and films.
 
 Short version for hero/SEO:
 
-> Fullstack TypeScript developer. Loves hard UI. Sui hackathon winner. Ho Chi Minh City.
+> Self-taught fullstack developer in Ho Chi Minh City. I build web apps with Next.js, TypeScript, and sometimes Sui.
 
 Refine after the projects/experience sections are filled in — the bio should namedrop the strongest project once it's clearly the strongest.

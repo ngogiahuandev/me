@@ -3,6 +3,8 @@
 import * as React from "react";
 import { Check, Copy } from "lucide-react";
 
+import { clickSoftSound } from "../lib/click-soft";
+import { playSound } from "../lib/sound-engine";
 import { Button } from "./button";
 import { cn } from "../lib/utils";
 
@@ -33,6 +35,7 @@ export function CopyButton({
     if (copied) return;
     try {
       await navigator.clipboard.writeText(text);
+      void playSound(clickSoftSound.dataUri, { volume: 0.5 }).catch(() => {});
       setCopied(true);
       onCopy?.(text);
       timeoutRef.current = setTimeout(() => setCopied(false), 1000);

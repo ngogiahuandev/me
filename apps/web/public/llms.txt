@@ -1,9 +1,9 @@
-# Ngo Gia Huan
+# Ngô Gia Huấn
 
-> Fullstack engineer in Ho Chi Minh City. Building Next.js products in TypeScript, with occasional detours into Sui blockchain.
+> Hi there. I'm a self-taught fullstack developer building web apps with Next.js and TypeScript. I enjoy working on UI details and joining hackathons from time to time.
 
-- Name: Ngo Gia Huan (Ngô Gia Huấn)
-- Role: Fullstack Engineer (Frontend / Backend / Web3)
+- Name: Ngô Gia Huấn (romanized: Ngo Gia Huan)
+- Role: Freelance Fullstack Developer (Frontend / Backend / Web3)
 - Location: Ho Chi Minh City, Vietnam (UTC+7)
 - Site: https://huanngdev.site
 - Email: huanngdev@gmail.com
@@ -21,4 +21,4 @@
 
 ## Availability
 
-Open to full-time, freelance, and contract work — available immediately. Remote, on-site, or hybrid.
+Currently freelancing and open to full-time opportunities or additional freelance work. Remote, on-site, or hybrid.

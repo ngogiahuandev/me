@@ -2,7 +2,10 @@
 
 import { useEffect, useMemo, useState } from "react";
 
+import { clickSoftSound } from "../lib/click-soft";
 import { cn } from "../lib/utils";
+import { playSound } from "../lib/sound-engine";
+import { tick001Sound } from "../lib/tick-001";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "./hover-card";
 
 export type TOCItemType = {
@@ -19,6 +22,7 @@ export type TOCMinimapProps = {
 
 export function TOCMinimap({ items, className }: TOCMinimapProps) {
   const itemIds = useMemo(() => items.map((item) => item.url.replace("#", "")), [items]);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const activeHeading = useActiveHeading(itemIds);
 
@@ -27,89 +31,119 @@ export function TOCMinimap({ items, className }: TOCMinimapProps) {
   }
 
   return (
-    <div className={cn("ml-auto w-18", className)}>
-      <HoverCard openDelay={0} closeDelay={0}>
-        <HoverCardTrigger asChild>
-          <div className="flex max-h-[50dvh] flex-col gap-3 overflow-hidden py-3 pl-6 opacity-100 transition-opacity duration-200 data-popup-open:opacity-0">
-            {items.map((item) => (
-              <div
-                key={item.url}
-                data-depth={item.depth}
-                data-active={item.url === `#${activeHeading}`}
-                className={cn(
-                  "bg-ring/50 h-0.5 w-6 shrink-0 rounded-xs transition-[background-color] duration-200",
-                  "data-[depth=3]:ml-2 data-[depth=3]:w-4",
-                  "data-[depth=4]:ml-4 data-[depth=4]:w-2",
-                  "data-active:bg-foreground",
-                )}
-              />
-            ))}
-          </div>
-        </HoverCardTrigger>
-
-        <HoverCardContent
-          className="data-[side=left]:slide-in-from-right-3 data-[side=left]:slide-out-to-right-3 data-open:zoom-in-100 data-closed:zoom-out-100 w-56 overflow-hidden p-0 duration-200"
-          align="start"
-          alignOffset={0}
-          side="left"
-          sideOffset={-60}
-        >
-          <div className="flex max-h-[50dvh] overflow-y-auto overscroll-contain">
-            <ul className="flex size-full flex-col px-6 py-4 text-sm">
-              {items.map((item) => (
-                <li key={item.url} className="flex py-1">
-                  <a
-                    href={item.url}
-                    data-depth={item.depth}
-                    data-active={item.url === `#${activeHeading}`}
+    <nav aria-label="On this page" className={cn("w-12", className)}>
+      <ul
+        className="flex max-h-[50dvh] cursor-pointer flex-col items-stretch gap-0 py-3"
+        onMouseLeave={() => setHoveredIndex(null)}
+      >
+        {items.map((item, index) => (
+          <li key={item.url} className="flex w-full items-center">
+            <HoverCard open={hoveredIndex === index}>
+              <HoverCardTrigger asChild>
+                <a
+                  href={item.url}
+                  aria-label={
+                    typeof item.title === "string" ? `Go to ${item.title}` : "Go to section"
+                  }
+                  aria-current={item.url === `#${activeHeading}` ? "location" : undefined}
+                  data-active={item.url === `#${activeHeading}`}
+                  className={cn(
+                    "group focus-visible:ring-ring/50 flex w-12 cursor-pointer items-center rounded-sm bg-transparent py-1 focus-visible:ring-2 focus-visible:outline-none",
+                    item.depth === 3 && "ml-2",
+                    item.depth >= 4 && "ml-4",
+                  )}
+                  onClick={handleItemClick}
+                  onMouseEnter={() => {
+                    setHoveredIndex(index);
+                    void playSound(tick001Sound.dataUri, { volume: 0.05 }).catch(() => {});
+                  }}
+                  onFocus={() => setHoveredIndex(index)}
+                  onBlur={() => setHoveredIndex(null)}
+                >
+                  <span
                     className={cn(
-                      "line-clamp-2 w-full transition-[color] duration-200",
-                      "text-muted-foreground hover:text-foreground data-active:text-foreground",
-                      "data-[depth=3]:pl-4 data-[depth=4]:pl-8",
+                      "bg-muted-foreground/35 block h-0.5 origin-left rounded-full",
+                      "transition-[width,background-color,transform] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                      "group-hover:bg-primary group-focus-visible:bg-primary group-hover:scale-y-150 group-focus-visible:scale-y-150",
+                      "group-data-[active=true]:bg-primary motion-reduce:transition-none",
+                      getProximityWidth(index, hoveredIndex),
                     )}
-                    onClick={handleItemClick}
-                  >
-                    {item.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </HoverCardContent>
-      </HoverCard>
-    </div>
+                  />
+                </a>
+              </HoverCardTrigger>
+              <HoverCardContent
+                side="right"
+                align="center"
+                sideOffset={14}
+                className="w-auto max-w-64 gap-1 px-3 py-2 duration-200"
+              >
+                <p className="line-clamp-2 text-sm font-medium">{item.title}</p>
+                <p className="text-muted-foreground text-xs">Jump to this section</p>
+              </HoverCardContent>
+            </HoverCard>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
+}
+
+function getProximityWidth(index: number, hoveredIndex: number | null) {
+  if (hoveredIndex === null) return "w-3";
+
+  const distance = Math.abs(index - hoveredIndex);
+  if (distance === 0) return "w-10";
+  if (distance === 1) return "w-8";
+  if (distance === 2) return "w-6";
+  if (distance === 3) return "w-5";
+  if (distance === 4) return "w-4";
+  return "w-3";
 }
 
 export function useActiveHeading(itemIds: string[]) {
   const [activeId, setActiveId] = useState<string | null>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
-          }
-        }
-      },
-      { rootMargin: "0% 0% -80% 0%", threshold: 0.98 },
-    );
+    const headings = itemIds
+      .map((id) => document.getElementById(id))
+      .filter((element): element is HTMLElement => element !== null);
 
-    for (const id of itemIds ?? []) {
-      const element = document.getElementById(id);
-      if (element) {
-        observer.observe(element);
+    if (!headings.length) return;
+
+    let frame: number | null = null;
+
+    const updateActiveHeading = () => {
+      const marker = window.innerHeight * 0.3;
+      let currentId = headings[0]?.id ?? null;
+
+      for (const heading of headings) {
+        if (heading.getBoundingClientRect().top > marker) break;
+        currentId = heading.id;
       }
-    }
+
+      const atPageEnd =
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      if (atPageEnd) currentId = headings.at(-1)?.id ?? currentId;
+
+      setActiveId((previousId) => (previousId === currentId ? previousId : currentId));
+    };
+
+    const scheduleUpdate = () => {
+      if (frame !== null) return;
+      frame = window.requestAnimationFrame(() => {
+        frame = null;
+        updateActiveHeading();
+      });
+    };
+
+    updateActiveHeading();
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate);
 
     return () => {
-      for (const id of itemIds ?? []) {
-        const element = document.getElementById(id);
-        if (element) {
-          observer.unobserve(element);
-        }
-      }
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+      if (frame !== null) window.cancelAnimationFrame(frame);
     };
   }, [itemIds]);
 
@@ -118,6 +152,7 @@ export function useActiveHeading(itemIds: string[]) {
 
 function handleItemClick(e: React.MouseEvent<HTMLAnchorElement>) {
   e.preventDefault();
+  void playSound(clickSoftSound.dataUri, { volume: 0.5 }).catch(() => {});
   const url = e.currentTarget.getAttribute("href") ?? "";
   scrollToHeading(url);
 }

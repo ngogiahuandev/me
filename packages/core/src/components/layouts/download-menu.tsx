@@ -20,7 +20,7 @@ export function DownloadMenu() {
       <DropdownMenuTrigger asChild>
         <Button variant="outline" aria-label="Download profile">
           <Download className="size-4" />
-          Download
+          Download CV
           <ChevronsUpDown className="ml-1 size-4" />
         </Button>
       </DropdownMenuTrigger>

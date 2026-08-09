@@ -1,22 +1,13 @@
-import { BadgeCheck } from "lucide-react";
+import { Pin } from "lucide-react";
+import { siTypescript } from "simple-icons";
 
 import { IDENTITY } from "../../constants";
 import { Avatar, AvatarFallback, AvatarImage } from "../avatar";
-import { StripedPattern } from "../striped-pattern";
+import { Badge } from "../badge";
 import { CopyButton } from "../copy-button";
-import { TypingAnimation } from "../typing-animation";
+import { StripedPattern } from "../striped-pattern";
 
-const ROLE_WORDS = [
-  "Fullstack Engineer",
-  "Frontend Engineer",
-  "Backend Engineer",
-  "Blockchain Engineer",
-  "Build fast",
-  "Ship fast",
-  "Bug free",
-  "Pixel perfect",
-  "Type safe",
-];
+const PINNED_ROLES = ["Frontend", "Backend", "Fullstack"] as const;
 
 export function ProfileSection() {
   return (
@@ -26,11 +17,17 @@ export function ProfileSection() {
           <StripedPattern className="bg-muted-foreground/5 -z-10 rounded-full" />
           <Avatar className="relative size-full bg-transparent">
             <AvatarImage
-              src="/images/avatar-nft-monkey.svg"
+              src="/images/ai-gen-avatar-light.webp"
               alt={IDENTITY.displayName}
-              className="scale-100 object-cover object-bottom"
+              className="absolute inset-0 z-10 scale-100 object-cover object-bottom opacity-100 transition-opacity duration-700 ease-out motion-reduce:transition-none dark:opacity-0"
             />
-            <AvatarFallback className="bg-zinc-100 text-base font-medium">
+            <AvatarImage
+              src="/images/ai-gen-avatar-dark.webp"
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 z-10 scale-100 object-cover object-bottom opacity-0 transition-opacity duration-700 ease-out motion-reduce:transition-none dark:opacity-100"
+            />
+            <AvatarFallback className="absolute inset-0 bg-zinc-100 text-base font-medium">
               {IDENTITY.displayName
                 .split(" ")
                 .map((part) => part[0])
@@ -46,16 +43,23 @@ export function ProfileSection() {
               <h1 className="-translate-y-px text-2xl font-semibold tracking-tight sm:text-3xl">
                 {IDENTITY.displayName}
               </h1>
-              <BadgeCheck
-                className="text-background size-4 sm:size-5"
-                aria-label="Verified"
-                fill="blue"
-              />
               <CopyButton text={IDENTITY.displayName} className="ml-2" />
             </div>
 
-            <div className="text-muted-foreground border-y px-4 py-2 text-left text-sm">
-              <TypingAnimation words={ROLE_WORDS} loop className="leading-none tracking-normal" />
+            <div className="flex flex-wrap items-center gap-1.5 border-y px-4 py-2">
+              {PINNED_ROLES.map((role) => (
+                <Badge key={role} variant="secondary" className="gap-1.5 pr-2!">
+                  <Pin
+                    data-icon="inline-start"
+                    className="text-muted-foreground"
+                    aria-hidden="true"
+                  />
+                  <span>{role}</span>
+                  <svg data-icon="inline-end" viewBox="0 0 24 24" aria-label="TypeScript">
+                    <path fill="currentColor" d={siTypescript.path} />
+                  </svg>
+                </Badge>
+              ))}
             </div>
             <p className="text-muted-foreground hidden px-4 py-2 text-sm italic sm:block sm:text-sm">
               {IDENTITY.description}

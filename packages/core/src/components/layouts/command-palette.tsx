@@ -9,7 +9,6 @@ import {
   Briefcase,
   ChevronDown,
   Copy,
-  Eye,
   FolderGit2,
   GitBranch,
   GraduationCap,
@@ -88,13 +87,6 @@ const SECTIONS: SectionItem[] = [
     hash: "#coding",
     icon: GitBranch,
     keywords: ["github", "contributions", "activity"],
-  },
-  {
-    id: "views",
-    title: "Views",
-    hash: "#views",
-    icon: Eye,
-    keywords: ["traffic", "analytics", "page views"],
   },
   {
     id: "projects",
@@ -363,7 +355,12 @@ export function CommandPalette() {
               <CommandItem
                 value="action toggle theme dark light mode"
                 keywords={["theme", "dark", "light", "mode", "appearance"]}
-                onSelect={() => runCommand(() => setTheme(isDark ? "light" : "dark"))}
+                onSelect={() =>
+                  runCommand(() => {
+                    if (document.documentElement.dataset.magicuiThemeVt === "active") return;
+                    setTheme(isDark ? "light" : "dark");
+                  })
+                }
               >
                 {isDark ? <Sun /> : <Moon />}
                 <ItemTitle>{`Switch to ${isDark ? "light" : "dark"} theme`}</ItemTitle>

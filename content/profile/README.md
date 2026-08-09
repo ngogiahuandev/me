@@ -5,7 +5,7 @@ updated: 2026-05-19
 
 # Profile data
 
-Single source of truth for everything personal about Ngo Gia Huan that appears on the portfolio site. Each file maps to one part of the page — keeping them split lets the content schema evolve independently per section.
+Single source of truth for everything personal about Ngô Gia Huấn that appears on the portfolio site. Each file maps to one part of the page — keeping them split lets the content schema evolve independently per section.
 
 ## Files
 
@@ -15,7 +15,7 @@ Single source of truth for everything personal about Ngo Gia Huan that appears o
 - [about.md](./about.md) — narrative anchor + draft bio.
 - [skills.md](./skills.md) — tech stack for the icon grid.
 - [education.md](./education.md) — FPT University.
-- [experience.md](./experience.md) — Formo, FPT Software internship.
+- [experience.md](./experience.md) — current freelance work, Formo, FPT Software internship.
 - [projects.md](./projects.md) — WalForm, hackathon projects, this portfolio.
 - [awards.md](./awards.md) — First Mover (Top 2), CommandOSS HackerHouse.
 
