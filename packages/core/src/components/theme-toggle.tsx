@@ -1,9 +1,10 @@
 "use client";
 
-import { Button } from "./button";
-import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+
+import { AnimatedThemeToggler } from "./animated-theme-toggler";
+import { buttonVariants } from "./button";
 
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
@@ -18,17 +19,15 @@ export function ThemeToggle() {
   const isDark = resolvedTheme === "dark";
 
   return (
-    <Button
-      variant="outline"
-      size="icon"
+    <AnimatedThemeToggler
+      theme={mounted && isDark ? "dark" : "light"}
+      onThemeChange={setTheme}
+      duration={650}
+      variant="circle"
       aria-label={
         mounted ? (isDark ? "Switch to light theme" : "Switch to dark theme") : "Toggle theme"
       }
-      onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="relative"
-    >
-      <Sun className="size-4 scale-100 rotate-0 transition-transform dark:scale-0 dark:-rotate-90" />
-      <Moon className="absolute size-4 scale-0 rotate-90 transition-transform dark:scale-100 dark:rotate-0" />
-    </Button>
+      className={buttonVariants({ variant: "outline", size: "icon" })}
+    />
   );
 }
