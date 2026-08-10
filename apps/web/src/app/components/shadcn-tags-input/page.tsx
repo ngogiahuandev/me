@@ -273,13 +273,13 @@ function Section({
   children,
 }: {
   id: string;
-  title: string;
+  title?: string;
   description?: string;
   children: React.ReactNode;
 }) {
   return (
     <section id={id} className="px-4 py-8 sm:px-6 lg:px-8">
-      <h2 className="text-lg font-semibold tracking-tight">{title}</h2>
+      {title && <h2 className="text-lg font-semibold tracking-tight">{title}</h2>}
       {description && <p className="text-muted-foreground mt-1 text-sm">{description}</p>}
       <div className="mt-4">{children}</div>
     </section>
@@ -325,7 +325,7 @@ export default function TagsInputComponentPage() {
         description="A composable tags input with keyboard controls, validation, and form support."
       />
       <article className="mx-auto flex w-full max-w-4xl flex-1 flex-col border-x">
-        <Section id="demo" title="Demo">
+        <Section id="demo">
           <ComponentDemo code={BASIC_USAGE_CODE} previewClassName="max-w-sm">
             <BasicDemo />
           </ComponentDemo>
