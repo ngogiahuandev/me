@@ -1,7 +1,8 @@
+/* eslint-disable no-console */
 "use client";
 
 import { BookMarkedIcon, GitCommitVerticalIcon, StarIcon, UsersIcon } from "lucide-react";
-import { use } from "react";
+import { use, useEffect } from "react";
 
 import type { GitHubStatsData } from "../../../lib/get-cached-github-stats";
 
@@ -20,6 +21,11 @@ const FIELDS = [
 
 export function GitHubStats({ stats }: { stats: Promise<GitHubStatsData> }) {
   const data = use(stats);
+
+  useEffect(() => {
+    console.info("[github:stats:client] Rendering received data", data);
+  }, [data]);
+
   return (
     <dl className="divide-border flex divide-x">
       {FIELDS.map(({ key, label, Icon }) => (

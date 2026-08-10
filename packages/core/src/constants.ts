@@ -710,6 +710,13 @@ export interface ChangelogEntry {
 // Curated from git history — big milestones only. Newest first.
 export const CHANGELOG = [
   {
+    date: "2026-08-10",
+    changes: [
+      "Published Scroll Minimap with mirrored left and right placement, container-aware tracking, a conversation demo, and inline installation source.",
+      "Added server and browser diagnostics for GitHub contribution and profile-stat requests, including missing-token, network, response, and render details.",
+    ],
+  },
+  {
     date: "2026-08-09",
     changes: [
       "Refreshed the profile with the Vietnamese display name, current freelance role, richer experience stacks, and theme-aware generated avatars.",

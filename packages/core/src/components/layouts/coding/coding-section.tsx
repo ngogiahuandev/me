@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { Suspense } from "react";
 
 import { GitHubContributions, GitHubContributionsFallback } from "../../github-contributions";
@@ -12,6 +13,13 @@ const GITHUB_USERNAME = "huanngdev";
 const GITHUB_PROFILE_URL = "https://github.com/huanngdev";
 
 export function CodingSection() {
+  console.info(
+    `[github] Coding section requested; data loaders run on the server and cache results for 24 hours ${JSON.stringify(
+      {
+        username: GITHUB_USERNAME,
+      },
+    )}`,
+  );
   const contributions = getCachedContributions(GITHUB_USERNAME);
   const stats = getCachedGitHubStats(GITHUB_USERNAME);
 

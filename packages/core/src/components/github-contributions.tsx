@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 "use client";
 
 import { format, formatISO, parseISO, startOfWeek } from "date-fns";
@@ -44,6 +45,17 @@ export function GitHubContributions({
   const gridRef = useRef<HTMLDivElement>(null);
   const [dims, setDims] = useState({ weeks: 0, cell: 0 });
   const weeks = useMemo(() => groupByWeek(data), [data]);
+
+  useEffect(() => {
+    console.info("[github:contributions:client] Rendering received data", {
+      days: data.length,
+      weeks: weeks.length,
+    });
+
+    if (data.length === 0) {
+      console.warn("[github:contributions:client] No contribution days received; hiding graph");
+    }
+  }, [data.length, weeks.length]);
 
   useEffect(() => {
     const element = gridRef.current;

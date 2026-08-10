@@ -1,4 +1,4 @@
-import { ArrowUpRight, Tags } from "lucide-react";
+import { ArrowUpRight, Map, Tags } from "lucide-react";
 import Link from "next/link";
 
 import { cn } from "../../lib/utils";
@@ -15,6 +15,12 @@ const COMPONENT_LIST: {
     name: "Tags Input",
     description: "A composable tags input built on shadcn primitives.",
     icon: Tags,
+  },
+  {
+    slug: "scroll-minimap",
+    name: "Scroll Minimap",
+    description: "A compact scrollspy navigator for long content.",
+    icon: Map,
   },
 ];
 
