@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@import "@vidstack/react/player/styles/base.css";
+@import "@vidstack/react/player/styles/default/captions.css";
 
 @source "../**/*.{ts,tsx}";
 @source "../../../../apps/web/src/**/*.{ts,tsx}";

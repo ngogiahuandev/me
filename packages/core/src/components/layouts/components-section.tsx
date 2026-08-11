@@ -1,4 +1,4 @@
-import { ArrowUpRight, Map, Tags } from "lucide-react";
+import { ArrowUpRight, Clapperboard, Map, Tags } from "lucide-react";
 import Link from "next/link";
 
 import { cn } from "../../lib/utils";
@@ -21,6 +21,12 @@ const COMPONENT_LIST: {
     name: "Scroll Minimap",
     description: "A compact scrollspy navigator for long content.",
     icon: Map,
+  },
+  {
+    slug: "video-player",
+    name: "Video Player",
+    description: "A headless media player with shadcn controls.",
+    icon: Clapperboard,
   },
 ];
 
