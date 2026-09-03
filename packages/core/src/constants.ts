@@ -529,6 +529,44 @@ export const PROJECTS = [
     links: { live: "https://sui-stream-web.vercel.app/" },
   },
   {
+    slug: "huanphim",
+    name: "HuanPhim",
+    description: "No-code film streaming stack deployed and secured on a self-managed VPS.",
+    details: {
+      overview:
+        "HuanPhim is a no-code infrastructure project focused on DevOps: a self-hosted Jellyfin service deployed on an Ubuntu VPS for a small private audience. I designed the container, storage, networking, access-control, and HTTPS setup instead of building another streaming frontend.",
+      features: [
+        "Runs Jellyfin and qBittorrent as Docker Compose services with persistent configuration, bounded logs, and separate download and media paths.",
+        "Exposes Jellyfin through Caddy with automatic HTTPS at watch.huanphim.site while keeping application ports bound to localhost.",
+        "Restricts administration to key-only SSH over Tailscale and a deny-by-default UFW policy; the qBittorrent interface stays behind an SSH tunnel.",
+        "Uses a dedicated service account and a read-only Jellyfin media mount so the streaming service cannot delete the underlying library.",
+        "Prioritizes direct play and monitors storage, bandwidth, container health, and transcoding pressure for reliable operation on a bounded VPS.",
+      ],
+    },
+    stack: ["Ubuntu", "Docker Compose", "Jellyfin", "Caddy", "Tailscale"],
+    status: "live",
+    links: { live: "https://watch.huanphim.site" },
+  },
+  {
+    slug: "markq",
+    name: "MarkQ",
+    description: "Open-source quiz engine that turns Markdown files into interactive tests.",
+    details: {
+      overview:
+        "MarkQ is an MIT-licensed, local-first quiz engine for turning Markdown or Obsidian files into self-hosted interactive tests. It keeps quiz content file-based while handling attempts, grading, answer review, analytics, and result history in a full Next.js application.",
+      features: [
+        "Parses and validates single-answer and multiple-answer quizzes, explanations, settings, and local images from Markdown files.",
+        "Keeps correct answers server-side and uses server-authoritative grading, deadlines, ownership, and Zod validation.",
+        "Persists autosaved attempts, scores, shuffled order, flags, and immutable review snapshots in SQLite through Drizzle ORM.",
+        "Includes subject and topic analytics, linked knowledge articles, a protected Markdown editor, and an optional per-question AI tutor.",
+        "Ships with CLI validation, tests, CI, documentation, an example quiz, and a reusable authoring skill for contributors.",
+      ],
+    },
+    stack: ["Next.js", "TypeScript", "SQLite", "Drizzle", "shadcn/ui"],
+    status: "live",
+    links: { source: "https://github.com/huanngdev/markq" },
+  },
+  {
     slug: "personal-portfolio",
     name: "Personal portfolio",
     description:

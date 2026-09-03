@@ -1,6 +1,6 @@
 ---
 title: Projects
-updated: 2026-05-19
+updated: 2026-09-03
 ---
 
 # Projects
@@ -70,7 +70,43 @@ Ordered for the public page: **hackathon work first, then everything else.** Hac
 
 ---
 
-## 4. Relic of Lie — 🥈 Top 2
+## 4. HuanPhim
+
+- **One-liner:** No-code film streaming stack deployed and secured on a self-managed VPS.
+- **Role:** Solo DevOps / System Administrator
+- **Stack:** Ubuntu, Docker Compose, Jellyfin, Caddy, Tailscale
+- **Status:** Live for a small private audience.
+- **Links:**
+  - Live: https://watch.huanphim.site
+
+### Highlights
+
+- Deployed Jellyfin and qBittorrent as isolated Docker Compose services with persistent storage and bounded logs.
+- Published only Jellyfin through Caddy with automatic HTTPS while keeping application ports bound to localhost.
+- Restricted administration to key-only SSH over Tailscale, a deny-by-default UFW policy, and an SSH-tunneled qBittorrent interface.
+- Separated service ownership and mounted media read-only in Jellyfin to protect the underlying library.
+
+---
+
+## 5. MarkQ
+
+- **One-liner:** Open-source quiz engine that turns Markdown files into interactive tests.
+- **Role:** Solo Fullstack Developer / Maintainer
+- **Stack:** Next.js, TypeScript, SQLite, Drizzle, shadcn/ui
+- **Status:** Open source under the MIT license.
+- **Links:**
+  - GitHub: https://github.com/huanngdev/markq
+
+### Highlights
+
+- Built a Markdown-first quiz engine with validation, server-side answers, grading, explanations, and configurable quiz rules.
+- Persisted autosaved attempts, scores, shuffled order, flags, and immutable review snapshots in SQLite.
+- Added subject and topic analytics, linked knowledge articles, a protected Markdown editor, and an optional AI tutor.
+- Shipped documentation, an example quiz, tests, CI, and a reusable quiz-authoring skill for contributors.
+
+---
+
+## 6. Relic of Lie — 🥈 Top 2
 
 - **One-liner:** A decentralized take on the _Love Letter_ card game — bluffing and deduction, on-chain.
 - **Hackathon:** First Mover, 3 February 2026 — **Top 2**
@@ -84,7 +120,7 @@ The "first hackathon, first podium" line is the card subtitle — it's the fresh
 
 ---
 
-## 5. This portfolio site
+## 7. This portfolio site
 
 - **One-liner:** Personal portfolio built with Next.js 16, Tailwind v4, shadcn/ui, in a Turborepo monorepo with a shared `@repo/core` design-system package.
 - **Stack:** Next.js (App Router, RSC, server actions), Tailwind v4, shadcn/ui, Radix, Framer Motion, Velite/Contentlayer for MDX content, Vercel hosting.
@@ -95,7 +131,7 @@ Including the portfolio as a project is legitimate when it's craft-forward — r
 
 ---
 
-## 6. MapCN components
+## 8. MapCN components
 
 - **One-liner:** MapLibre-powered React map components integrated into the portfolio, centered on Ho Chi Minh City.
 - **Stack:** MapCN, MapLibre, React, TypeScript, Tailwind CSS.
@@ -103,12 +139,6 @@ Including the portfolio as a project is legitimate when it's craft-forward — r
 - **Links:** https://www.mapcn.dev/
 
 This belongs in the project list as a small UI-craft integration: it demonstrates third-party registry adoption, map rendering, theme-aware tiles, and location presentation without adding heavy product copy.
-
----
-
-## Personal projects (other)
-
-_(none captured yet — ask in a follow-up. Targets: any non-hackathon side projects, OSS contributions, repo experiments worth surfacing.)_
 
 ---
 
