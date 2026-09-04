@@ -1,4 +1,4 @@
-import { ArrowUpRight, Clapperboard, Map, Tags } from "lucide-react";
+import { ArrowUpRight, Box, Clapperboard, Map, Tags } from "lucide-react";
 import Link from "next/link";
 
 import { cn } from "../../lib/utils";
@@ -10,6 +10,12 @@ const COMPONENT_LIST: {
   description: string;
   icon: typeof ArrowUpRight;
 }[] = [
+  {
+    slug: "github-contributions-3d",
+    name: "GitHub Contributions 3D",
+    description: "An interactive Three.js contribution calendar with six themes.",
+    icon: Box,
+  },
   {
     slug: "shadcn-tags-input",
     name: "Tags Input",

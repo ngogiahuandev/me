@@ -748,6 +748,12 @@ export interface ChangelogEntry {
 // Curated from git history — big milestones only. Newest first.
 export const CHANGELOG = [
   {
+    date: "2026-09-04",
+    changes: [
+      "Published GitHub Contributions 3D — an interactive Three.js contribution calendar with six color themes, live username lookup, fixed lighting, a proportional base, and date metadata.",
+    ],
+  },
+  {
     date: "2026-08-10",
     changes: [
       "Published Scroll Minimap with mirrored left and right placement, container-aware tracking, a conversation demo, and inline installation source.",
