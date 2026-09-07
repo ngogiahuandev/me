@@ -689,6 +689,12 @@ export interface BookmarkEntry {
 
 export const BOOKMARKS = [
   {
+    title: "Sean Goedecke",
+    source: "seangoedecke.com",
+    url: "https://www.seangoedecke.com/",
+    date: "2026-09-07",
+  },
+  {
     title: "MapCN",
     source: "mapcn.dev",
     url: "https://www.mapcn.dev/",
